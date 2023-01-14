@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-SemiBoldItalic.ttf') format('truetype');
+          font-weight: 600;
+          font-style: italic;
+      }
+     
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-Regular.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-LightItalic.ttf') format('truetype');
+          font-weight: 300;
+          font-style: italic;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-MediumItalic.ttf') format('truetype');
+          font-weight: 500;
+          font-style: italic;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-BlackItalic.ttf') format('truetype');
+          font-weight: 900;
+          font-style: italic;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-RegularItalic.ttf') format('truetype');
+          font-weight: normal;
+          font-style: italic;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-ExtraBoldItalic.ttf') format('truetype');
+          font-weight: 800;
+          font-style: italic;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-SemiBold.ttf') format('truetype');
+          font-weight: 600;
+          font-style: normal;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-BoldItalic.ttf') format('truetype');
+          font-weight: bold;
+          font-style: italic;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-Light.ttf') format('truetype');
+          font-weight: 300;
+          font-style: normal;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-Thin.ttf') format('truetype');
+          font-weight: 100;
+          font-style: normal;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-Bold.ttf') format('truetype');
+          font-weight: bold;
+          font-style: normal;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-ExtraBold.ttf') format('truetype');
+          font-weight: 800;
+          font-style: normal;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-Black.ttf') format('truetype');
+          font-weight: 900;
+          font-style: normal;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-ThinItalic.ttf') format('truetype');
+          font-weight: 100;
+          font-style: italic;
+      }
+      
+      @font-face {
+          font-family: 'Hellix';
+          src: url('https://assets.codepen.io/6060109/Hellix-Medium.ttf') format('truetype');
+          font-weight: 500;
+          font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="login">
+      <div class="welcome-img">
+        <img src="">
+      </div>
+      <h3>Welcome to Rose Hack!</h3>
+      <h2>Enter your credentials</h2>
+      <form action="/control" method="post" class ="login-form">
+        <div class = "textbox">
+          <input type="username" id="username" name="username" placeholder="Username">
+        </div>
+        <div class = "textbox">
+          <input type="password" id="password" name="password" placeholder="Password"><br><br>
+        </div>
+        <button type="submit">Login</button>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+      </form>
+    </div>
+
+  </body>
+</html>
