@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, make_respo
 from ArduinoFunctions import open_door, close_door
 
 
-
 app = Flask(__name__, template_folder='html', static_folder='css')
 
 @app.route('/')
