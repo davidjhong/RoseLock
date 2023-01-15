@@ -12,7 +12,7 @@
 
   }
   
-  .constrain {
+  .constrain { 
     max-width: 414px;
     margin: auto;
   }
@@ -50,6 +50,10 @@
   
   .bp-100 {
     padding-bottom: 100px;
+  }
+
+  .bp-40 {
+    padding-bottom: 40px;
   }
   
   .tp-80 {
@@ -226,27 +230,57 @@
   .box.purple {
     background: #592e6d;
   }
-  
-  .footer-icons {
+
+  .login-btn{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin: 25px auto;
-    width 20%;
-    gap: 16px;
+    align-items: left;
+    width: 100%;
+    margin: 0 auto;
   }
-  
-  .icon-circle {
-    background: rgba(128, 173, 245, .2);
-    height: 32px;
-    width: 32px;
-    border-radius: 100%;
+
+  .login-btn button {
+    width: 220px;
+    color: #f9f9f9;
+    height: 50px;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;  
+    display: block;
+    width: 250px;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color:#070606;
+    border: 0;
+    outline: 0;
+  }
+
+  .login-btn-top {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
+    width: 5%;
+    margin: 0;
   }
-  
-  .icon-circle > img {
-    width: 55%;
+
+  .login-btn-top button {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: #f9f9f9;
+    background-color:#070606;
+    font-size: 16px;
+    border-radius: 35px;
+    width: 10%;
+    border: 0;
+    outline: 0;
   }
   
   .border-bottom {
@@ -332,7 +366,7 @@
     .goals-container {
       display: flex;
       flex-direction: row-reverse;
-      justif-content: center;
+      justify-content: center;
     }
     
     .goals-container img {
