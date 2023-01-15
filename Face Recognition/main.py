@@ -41,8 +41,9 @@ class FaceRecognition:
     def runRecognition(self):
         videoCapture = cv2.VideoCapture(0)
 
-        if not videoCapture.isOpen():
+        if not videoCapture.isOpened():
             sys.exit("Video source not found :C")
+            #print("flag")
         
         while True:
             ret, frame = videoCapture.read()
@@ -66,30 +67,30 @@ class FaceRecognition:
 
                     if matches[bestMatchIndex]:
                         name = self.knownFaceNames[bestMatchIndex]
-                        confidence = faceConfidence[faceDistances[bestMatchIndex]]
+                        confidence = faceConfidence(faceDistances[bestMatchIndex])
 
                     self.faceNames.append(f'{name} ({confidence})')
 
                 self.processCurrentFrame = not self.processCurrentFrame
 
-                #Display annotations
-                for(top, right, bottom, left), name in zip(self.faceLocations, self.faceNames):
-                    top *= 4
-                    right *= 4
-                    bottom *= 4
-                    left *= 4
+            #Display annotations
+            for(top, right, bottom, left), name in zip(self.faceLocations, self.faceNames):
+                top *= 4
+                right *= 4
+                bottom *= 4
+                left *= 4
 
-                    cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
-                    cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), -1)
-                    cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 1)
+                cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+                cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), -1)
+                cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 1)
 
-                cv2.imshow('Face Recognition', frame)
+            cv2.imshow('Face Recognition', frame)
 
-                if cv2.waitKey(1) == ord('q'):
-                    break
+            if cv2.waitKey(1) == ord('q'):
+                break
 
-            videoCapture.release()
-            cv2.destroyAllWindows()
+        videoCapture.release()
+        cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':
