@@ -3,7 +3,7 @@ from ArduinoFunctions import open_door, close_door
 
 
 
-app = Flask(__name__, template_folder='templates', static_folder='staticfiles')
+app = Flask(__name__, template_folder='html', static_folder='css')
 
 @app.route('/')
 def login():
