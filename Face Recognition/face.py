@@ -43,7 +43,6 @@ class FaceRecognition:
 
         if not videoCapture.isOpened():
             sys.exit("Video source not found :C")
-            #print("flag")
         
         while True:
             ret, frame = videoCapture.read()
@@ -60,7 +59,7 @@ class FaceRecognition:
                 for faceEncoding in self.faceEncodings:
                     matches = face_recognition.compare_faces(self.knownFaceEncodings, faceEncoding)
                     name = "Unkown"
-                    confidence = "Unkown"
+                    confidence = "Boi who u?"
 
                     faceDistances = face_recognition.face_distance(self.knownFaceEncodings, faceEncoding)
                     bestMatchIndex = np.argmin(faceDistances)
@@ -70,8 +69,9 @@ class FaceRecognition:
                         confidence = faceConfidence(faceDistances[bestMatchIndex])
 
                     self.faceNames.append(f'{name} ({confidence})')
+                    print(confidence) #use this to get data into arduin board
 
-                self.processCurrentFrame = not self.processCurrentFrame
+            self.processCurrentFrame = not self.processCurrentFrame
 
             #Display annotations
             for(top, right, bottom, left), name in zip(self.faceLocations, self.faceNames):
@@ -81,7 +81,7 @@ class FaceRecognition:
                 left *= 4
 
                 cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
-                cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), -1)
+                cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
                 cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 1)
 
             cv2.imshow('Face Recognition', frame)
