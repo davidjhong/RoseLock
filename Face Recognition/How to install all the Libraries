@@ -1,0 +1,8 @@
+Also first install cmake :- pip install cmake
+
+Dlib Install Guide:- https://github.com/datamagic2020/Install-dlib
+
+
+Then install face recognition library :- pip install face_recognition
+
+Opencv install :- pip install opencv-python
