@@ -5,15 +5,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rose-Lock-Control</title>
+    <style>
+      @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-SemiBoldItalic.ttf') format('truetype');
+         font-weight: 600;
+         font-style: italic;
+     }
+    
+     @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-Regular.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+     }
+     
+     @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-LightItalic.ttf') format('truetype');
+         font-weight: 300;
+         font-style: italic;
+     }
+     
+     @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-MediumItalic.ttf') format('truetype');
+         font-weight: 500;
+         font-style: italic;
+     }
+     
+     @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-BlackItalic.ttf') format('truetype');
+         font-weight: 900;
+         font-style: italic;
+     }
+     
+     @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-RegularItalic.ttf') format('truetype');
+         font-weight: normal;
+         font-style: italic;
+     }
+     
+     @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-ExtraBoldItalic.ttf') format('truetype');
+         font-weight: 800;
+         font-style: italic;
+     }
+     
+     @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-SemiBold.ttf') format('truetype');
+         font-weight: 600;
+         font-style: normal;
+     }
+     
+     @font-face {
+         font-family: 'Hellix';
+         src: url('https://assets.codepen.io/6060109/Hellix-BoldItalic.ttf') format('truetype');
+         font-weight: bold;
+         font-style: italic;
+     }
+  </style>
   </head>
   <body>
     <div class="lock-menu">
     <h1>Maglock Control</h1>
     <form action="/door" method="post">
       <div class="lock-options">
-      <input type="submit" name="action" value="Turn On">
-      <input type="submit" name="action" value="Turn Off">
+      <button type="submit" name="action" value="Turn On">Turn On </button>
+      <button type="submit" name="action" value="Turn Off">Turn Off</button>
     </div>
     </form>
     {% if action %}
