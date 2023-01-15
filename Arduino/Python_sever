@@ -1,0 +1,19 @@
+import serial 
+import time
+arduinoData= serial.Serial('com4', 9600)
+time.sleep(1)
+
+while True:
+    print("Please enter your password: ")
+    password = input()
+   
+    if(  password== 1):
+        
+        arduinoData.write(password.encode())
+        time.sleep(1)
+       
+    else:
+        arduinoData.write(password.encode())
+        time.sleep(1)
+        
+        
