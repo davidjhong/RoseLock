@@ -1,12 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for, make_response
-from ArduinoFunctions import open_door, close_door
+from ArduinoCom import open_door, close_door
+
 
 
 app = Flask(__name__, template_folder='html', static_folder='css')
 
 @app.route('/')
 def login():
-    return render_template('login.html')
+    return render_template('main.html')
+
+
+@app.route('/login-fourmz', methods=['POST'])
+def loginpage():
+    action = request.form['action']
+    if action == 'Login': 
+        return render_template ('login.html')
 
 
 @app.route('/control', methods=['POST'])
