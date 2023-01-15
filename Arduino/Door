@@ -1,0 +1,213 @@
+ #include<Servo.h>
+ Servo s1;
+// int password=0;
+// int correct_pass_led= 11;
+ int error_pass_led =8;
+ int correct_pass_led= 9;
+ int echo = 10;//sensor
+ int receiver = 11;//sensor
+ String password;
+ String user;
+
+ unsigned long lastTime = millis();
+ unsigned long ultraSonic_delay = 100;
+ int duration =0;
+ int distance =0;
+ int a=3;
+ int b= 4;
+ int c=5;
+ int d=6;
+ int e=7;
+ int f=12;
+ int g=13;
+ //int count=0;
+ int value=0;
+  int leds[8] {a,b,c,d,e,f,g};
+ 
+ void setup() {
+  // put your setup code here, to run once:
+  s1.attach(2);
+  //s1.write(0);
+   //delay(10000);
+  pinMode(correct_pass_led, OUTPUT);
+   pinMode(error_pass_led, OUTPUT);
+//    pinMode(warning_pass_led1, OUTPUT);
+  // pinMode(warning_pass_led2, OUTPUT);
+   Serial.begin(9600);
+   Serial.println("Set your password: ");
+   pinMode(a, OUTPUT);
+  pinMode(b, OUTPUT);
+  pinMode(c, OUTPUT);
+  pinMode(d, OUTPUT);
+  pinMode(e, OUTPUT);
+  pinMode(f, OUTPUT);
+  pinMode(g, OUTPUT);
+  pinMode(echo, INPUT);
+  pinMode(receiver, OUTPUT);
+
+   
+  
+  
+}
+
+
+
+int nums[14][8]
+ { 
+  {1,1,1,1,1,1,0},//0
+  {0,1,1,0,0,0,0},//1
+  {1,1,0,1,1,0,1},//2
+  {1,1,1,1,0,0,1},//3
+   {0,1,1,0,0,1,1},//4
+   {1,0,1,1,0,1,1},//5
+   {1,0,1,1,1,1,1},//6
+   {1,1,1,0,0,0,0},//7
+   {1,1,1,1,1,1,1},//8
+   {1,1,1,1,0,1,1},//9
+   {1,0,0,1,1,1,0},//C
+   {1,0,0,1,1,1,1}//E
+  
+  
+ };
+
+ void write(int val){
+      for(int i=0; i<7;i++){
+    if(nums[val][i] ==1){
+      
+      digitalWrite(leds[i],HIGH);
+      
+      }
+      else{
+        digitalWrite(leds[i],LOW); 
+        
+       }
+    
+    
+    } 
+  
+  
+  }
+ 
+void unlock(){
+  
+  if(Serial.available() >0){
+    
+     
+    password = Serial.readStringUntil('\r');
+   
+     if(password=="Ihaveadream" ){
+       value++;
+       
+      write(value);
+      write(10);
+        digitalWrite(correct_pass_led,HIGH);
+        delay(1000);
+        digitalWrite(correct_pass_led,LOW);
+         s1.write(0);
+        delay(5000);
+         s1. write(90);
+      delay(1000);
+     // count=1;
+     
+   
+    }
+    else{
+      
+       
+      write(value);  
+      
+      digitalWrite(error_pass_led,HIGH);
+      delay(1000);
+      digitalWrite(error_pass_led,LOW);
+     // count+=1;
+    
+    
+      /* if(count>3){
+      digitalWrite(error_pass_led,HIGH);
+      delay(1000);
+      digitalWrite(error_pass_led,LOW);
+
+      digitalWrite(warning_pass_led1,HIGH);
+      delay(1000);
+      digitalWrite(warning_pass_led1,LOW);
+
+      digitalWrite(warning_pass_led2,HIGH);
+      delay(1000);
+      digitalWrite(warning_pass_led2,LOW);
+      */
+        value++;
+     write(value);
+     write(11);
+      
+     }
+    
+    }    
+   }
+ 
+ 
+ void triggerUltrasonicSensor()
+{
+  digitalWrite(receiver, LOW);
+  delayMicroseconds(10);
+  digitalWrite(receiver, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(receiver, LOW);
+
+  
+  duration = pulseIn(echo, HIGH);
+  distance = (duration/2) /28.5;
+  Serial.println(distance);
+
+  if(distance >10 && distance <50){
+    
+     digitalWrite(error_pass_led,HIGH);
+    // digitalWrite(correct_pass_led,HIGH);
+     delay(1000);
+     digitalWrite(error_pass_led,LOW);
+     //digitalWrite(correct_pass_led, LOW);
+    delay(1000);
+
+     digitalWrite(correct_pass_led,HIGH);
+     delay(1000);
+     digitalWrite(correct_pass_led,LOW);
+     //digitalWrite(correct_pass_led, LOW);
+    delay(1000);
+    
+   }
+  else if(distance < 10 ){
+    
+     digitalWrite(error_pass_led,HIGH);
+    // digitalWrite(correct_pass_led,HIGH);
+     delay(100);
+     digitalWrite(error_pass_led,LOW);
+     //digitalWrite(correct_pass_led, LOW);
+    delay(100);
+
+     digitalWrite(correct_pass_led,HIGH);
+     delay(100);
+     digitalWrite(correct_pass_led,LOW);
+     //digitalWrite(correct_pass_led, LOW);
+    delay(100);
+
+     
+   }
+} 
+
+
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+    
+  triggerUltrasonicSensor();
+  
+    unlock();
+   
+
+   
+   
+ //  s1. write(90);
+ //delay(1000);
+  
+}
