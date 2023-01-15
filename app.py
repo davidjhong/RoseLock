@@ -1,15 +1,14 @@
-from Lock import open
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, make_response
+from ArduinoFunctions import open_door, close_door
 
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_folder='staticfiles')
 
 @app.route('/')
 def login():
     return render_template('login.html')
 
-@app.route()
 
 @app.route('/control', methods=['POST'])
 def control():
@@ -25,9 +24,10 @@ def door():
     action = request.form['action']
     if action == 'Turn On':
         status = 'Maglock is activated'
-        open()
+        open_door()
     else:
         status = 'Maglock is deactivated'
+        close_door()
     return render_template('control.html', action=action, status=status)
 
 if __name__ == '__main__':
