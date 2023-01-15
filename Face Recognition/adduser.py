@@ -28,7 +28,7 @@ if result:
 	# If keyboard interrupt occurs, destroy image
 	# window
 	cv2.waitKey(0)
-	cv2.destroyWindow("GeeksForGeeks")
+	cv2.destroyWindow("Did not work try again")
 
 # If captured image is corrupted, moving to else part
 else:
