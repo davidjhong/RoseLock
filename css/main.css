@@ -55,6 +55,10 @@
   .bp-40 {
     padding-bottom: 40px;
   }
+
+  .bp-20 {
+    padding-bottom: 20px;
+  }
   
   .tp-80 {
     padding-top: 80px;
@@ -281,6 +285,7 @@
     width: 10%;
     border: 0;
     outline: 0;
+    font-weight: 500;
   }
   
   .border-bottom {
@@ -378,6 +383,7 @@
       text-align: left;
       width: 45%;
       margin-left: 20px;
+      margin-right: 70px;
     }
     
     .simple-flex {
