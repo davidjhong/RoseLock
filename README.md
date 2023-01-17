@@ -3,4 +3,5 @@ Created the website using HTML, CSS, and contributed to connecting the website a
 
 We tried implementing facial recognition, but due to time issue did not finish.
 
-To learn more, check out https://devpost.com/software/rose-lock!
+To learn more, check out https://devpost.com/software/rose-lock
+                     and https://www.youtube.com/watch?v=RiRY2CeYprg!
