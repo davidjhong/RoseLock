@@ -437,49 +437,6 @@
     .team-container .desktop-only {
       display: block;
     }
-    
-    footer {
-      display: flex;
-    }
-    
-    footer h4 {
-      width: 30%;
-      text-align: left;
-    }
-    
-    footer ul {
-      width: 40%;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      height: 200px;
-      padding: 0;
-      padding-right: 10%;
-    }
-    
-    footer li {
-      padding-top: 15px;
-    }
-    
-    footer .stay-up-to-date {
-      padding-top: 10px;
-      width: 30%;
-      text-align: left;
-    }
-    
-    footer .stay-up-to-date input[type='text'] {
-      width: 90%;
-    }
-    
-    
-    #copyright {
-      text-align: left;
-      margin-top: -80px;
-      padding-top: 0;
-    }
-    
-    .footer-icons {
-      display: none;
-    }
+
     
   }
