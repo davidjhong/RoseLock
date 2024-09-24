@@ -1,7 +1,7 @@
 # Rose Lock
 • Created the website using HTML, CSS, and contributed to connecting the website and the python code using flask and raspberry pi. 
 <br>
-• 3 layer personal security system with AI and facial recognition software, controlled through a website with a password
+• 2 layer personal security system with maglock, controlled through a website with a password
 manager
 <br>
 • Developed a website using CSS, HTML, and ReactJs for remote control and monitoring of the lock system, integrating
